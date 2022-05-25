@@ -1,0 +1,23 @@
+.search-form {
+  margin-top: 50px;
+  background-color: $colour-light-gray;
+  padding: 15px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & input[type=text] {
+    padding: 10px;
+    font-size: x-large;
+    border: none;
+    outline: none;
+    background-color: $colour-light-gray;
+    width: 90%;
+  }
+
+  & i {
+    font-size: x-large;
+    padding: 10px;
+  }
+}
