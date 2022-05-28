@@ -1,6 +1,8 @@
-.container { width: 100%; max-width: 1180px; margin: 0 auto 0 auto; }
+.body-container { width: 100%; max-width: 1180px; margin: 0 auto 0 auto; }
 
 * { box-sizing: border-box; }
+
+h2 { font-size: inherit; font-weight: inherit; }
 
 body { font-family: "Roboto Flex", sans-serif; margin: 0; }
 
@@ -10,6 +12,48 @@ header .logo { height: 100px; }
 
 .search-form { margin-top: 50px; background-color: #e0e0e0; padding: 15px; border-radius: 5px; display: flex; justify-content: space-between; align-items: center; }
 
-.search-form input[type=text] { padding: 10px; font-size: x-large; border: none; outline: none; background-color: #e0e0e0; width: 90%; }
+.search-form input[type=text] { padding: 10px; font-size: large; border: none; outline: none; background-color: #e0e0e0; width: 90%; }
 
 .search-form i { font-size: x-large; padding: 10px; }
+
+.search-selectors { display: flex; flex-direction: column; justify-content: flex-start; margin-top: 50px; }
+
+.search-selectors-tags { display: flex; flex-direction: row; justify-content: flex-start; margin-bottom: 20px; }
+
+.search-selectors-tags .search-tag { display: flex; flex-direction: row; align-items: center; justify-content: space-between; padding: 10px; font-size: medium; margin-right: 20px; }
+
+.search-selectors-tags .search-tag span { margin-right: 10px; }
+
+.search-selectors-tags .search-tag i { cursor: pointer; }
+
+.search-selectors-fieldsets { display: flex; flex-direction: row; justify-content: flex-start; }
+
+.search-selectors .search-selector { font-weight: 500; display: flex; align-items: center; justify-content: space-between; margin-right: 20px; }
+
+.search-selectors .search-selector label { display: flex; align-items: center; justify-content: space-between; width: 150px; font-size: large; padding-bottom: 10px; padding-top: 10px; cursor: pointer; }
+
+.search-selectors .search-selector label input[type=text] { font-size: large; border: none; outline: none; width: 90%; }
+
+.search-selectors .search-selector label input[type=text]::placeholder { color: white; }
+
+.search-selectors .search-selector .hidden { display: none; }
+
+.search-selectors .colour-ingredients { color: white; border: 1px solid #2769f4; background-color: #2769f4; border-radius: 5px; }
+
+.search-selectors .colour-appliances { color: white; border: 1px solid #5ad493; background-color: #5ad493; border-radius: 5px; }
+
+.search-selectors .colour-utensils { color: white; border: 1px solid #e64c43; background-color: #e64c43; border-radius: 5px; }
+
+.recipe-cards { margin-top: 50px; display: grid; grid-template-columns: 1fr 1fr 1fr; }
+
+.recipe-cards article { padding: 5px; margin: 10px; box-shadow: 0 0 10px lightgray; line-height: 25px; border-radius: 5px; background-color: #e0e0e0; }
+
+.recipe-cards img { height: 250px; width: 100%; object-fit: cover; border-top-right-radius: 5px; border-top-left-radius: 5px; }
+
+.recipe-cards .recipe-card-header { display: flex; justify-content: space-between; align-items: center; font-size: large; font-weight: 500; }
+
+.recipe-cards .recipe-card-main { display: flex; justify-content: space-between; }
+
+.recipe-cards .recipe-card-main p { margin: 0; padding-bottom: 15px; line-height: 17px; }
+
+.recipe-cards .recipe-card-main-ingredients { flex: 0 0 40%; }

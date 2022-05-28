@@ -1,0 +1,93 @@
+.search-selectors {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 50px;
+
+  &-tags {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+
+    & .search-tag {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      font-size: medium;
+      margin-right: 20px;
+
+      & span {
+        margin-right: 10px;
+      }
+
+      & i {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &-fieldsets {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  & .search-selector {
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 20px;
+
+    & label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 150px;
+      font-size: large;
+      padding-bottom: 10px;
+      padding-top: 10px;
+      cursor: pointer;
+
+      & input[type=text] {
+        font-size: large;
+        border: none;
+        outline: none;
+        width: 90%;
+
+        &::placeholder {
+          color: white;
+        }
+      }
+    }
+
+    & .hidden {
+      display: none;
+    }
+  }
+
+  .colour-ingredients {
+    color: white;
+    border: 1px solid $colour-background-ingredients;
+    background-color: $colour-background-ingredients;
+    border-radius: 5px;
+  }
+
+  .colour-appliances {
+    color: white;
+    border: 1px solid $colour-background-appliances;
+    background-color: $colour-background-appliances;
+    border-radius: 5px;
+  }
+
+  .colour-utensils {
+    color: white;
+    border: 1px solid $colour-background-utensils;
+    background-color: $colour-background-utensils;
+    border-radius: 5px;
+  }
+}
+
