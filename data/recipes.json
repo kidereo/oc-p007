@@ -21,7 +21,7 @@
         },
         {
           "ingredient": "Sucre",
-          "quantite": 30,
+          "quantity": 30,
           "unit": "grammes"
         },
         {
@@ -57,7 +57,7 @@
         },
         {
           "ingredient": "Carotte",
-          "quantite": 1
+          "quantity": 1
         },
         {
           "ingredient": "Citron Vert",
@@ -310,7 +310,7 @@
           "unit": "grammes"
         },
         {
-          "ingredient": "farine",
+          "ingredient": "Farine",
           "quantity": 90,
           "unit": "grammes"
         }

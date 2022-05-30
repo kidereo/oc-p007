@@ -2,7 +2,9 @@
 
 * { box-sizing: border-box; }
 
-h2 { font-size: inherit; font-weight: inherit; }
+h2 { font-size: inherit; font-weight: inherit; margin: 0; }
+
+h3 { text-align: right; padding: 5px; margin: 0; }
 
 body { font-family: "Roboto Flex", sans-serif; margin: 0; }
 
@@ -50,10 +52,16 @@ header .logo { height: 100px; }
 
 .recipe-cards img { height: 250px; width: 100%; object-fit: cover; border-top-right-radius: 5px; border-top-left-radius: 5px; }
 
-.recipe-cards .recipe-card-header { display: flex; justify-content: space-between; align-items: center; font-size: large; font-weight: 500; }
+.recipe-cards .recipe-card-header { display: flex; justify-content: space-between; align-items: flex-start; font-size: large; font-weight: 500; margin-top: 15px; }
 
-.recipe-cards .recipe-card-main { display: flex; justify-content: space-between; }
+.recipe-cards .recipe-card-header-timing { flex: 0 0 25%; align-items: flex-end; margin-left: 20px; }
+
+.recipe-cards .recipe-card-header i { margin-right: 5px; }
+
+.recipe-cards .recipe-card-main { display: flex; justify-content: space-between; margin-top: 15px; }
 
 .recipe-cards .recipe-card-main p { margin: 0; padding-bottom: 15px; line-height: 17px; }
 
-.recipe-cards .recipe-card-main-ingredients { flex: 0 0 40%; }
+.recipe-cards .recipe-card-main-ingredients { flex: 0 0 40%; margin-right: 10px; }
+
+.recipe-cards .recipe-card-main-ingredients p span { font-weight: 500; }
