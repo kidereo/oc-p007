@@ -1,5 +1,20 @@
 /**
- * Build and put recipe cards on index.html.
+ * Display recipe cards on index.html.
+ */
+init();
+
+/**
+ * Prepare for displaying recipe cards.
+ *
+ * @returns {Promise<void>}
+ */
+async function init() {
+    const {recipes} = await getData();
+    displayData(recipes);
+}
+
+/**
+ * Build up the recipe card section with the cards.
  *
  * @param recipes
  * @returns {Promise<void>}
@@ -33,12 +48,13 @@ async function displayData(recipes) {
         const pDescription = document.createElement("p");
         const cardMainIngredientsDiv = document.createElement("div");
         cardMainIngredientsDiv.classList.add("recipe-card-main-ingredients");
-        const pIngredient = document.createElement("p");
-        const pId = document.createElement("h3");
+        const headingId = document.createElement("h3");
 
         /**
          * Hydrate DOM elements.
          */
+        headingId.innerHTML = "<span>" + recipe.id + "</span>";
+
         Object.assign(image, {
             src: "assets/images/recipe-book.jpg",
             alt: "Recipe image placeholder",
@@ -50,15 +66,14 @@ async function displayData(recipes) {
 
         timeSpan.textContent = recipe.time + " min";
 
-        //Truncate descriptions if they are too long;
-        if (recipe.description.length < 349) {
+        /**
+         * Truncate descriptions if they are too long.
+         */
+        if (recipe.description.length < 350) {
             pDescription.textContent = recipe.description;
         } else {
             pDescription.textContent = recipe.description.slice(0, 350).concat(" ... ");
         }
-
-
-        pId.innerHTML = "<span>" + recipe.id + "</span>";
 
         /**
          * Loop through the ingredients for each recipe.
@@ -91,7 +106,7 @@ async function displayData(recipes) {
         cardMainDiv.appendChild(pDescription);
         cardHeaderDiv.appendChild(cardHeaderTimingDiv);
 
-        article.appendChild(pId);
+        article.appendChild(headingId);
         article.appendChild(image);
         article.appendChild(cardHeaderDiv);
         article.appendChild(cardMainDiv);
@@ -102,18 +117,3 @@ async function displayData(recipes) {
         recipeSection.appendChild(article);
     }
 }
-
-/**
- * Prepare for the take off.
- *
- * @returns {Promise<void>}
- */
-async function init() {
-    const {recipes} = await getData();
-    displayData(recipes);
-}
-
-/**
- * Take off!
- */
-init();

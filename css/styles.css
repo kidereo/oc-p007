@@ -14,13 +14,13 @@ header { display: flex; justify-content: center; align-items: center; height: 15
 
 header .logo { height: 100px; }
 
-.search-form { margin-top: 50px; background-color: #e0e0e0; padding: 15px; border-radius: 5px; display: flex; justify-content: space-between; align-items: center; }
+.search-form { margin: 50px 5px 0 5px; background-color: #e0e0e0; padding: 15px; border-radius: 5px; display: flex; justify-content: space-between; align-items: center; }
 
 .search-form input[type=text] { padding: 10px; font-size: large; border: none; outline: none; background-color: #e0e0e0; width: 90%; }
 
 .search-form i { font-size: x-large; padding: 10px; }
 
-.search-selectors { display: flex; flex-direction: column; justify-content: flex-start; margin-top: 50px; }
+.search-selectors { display: flex; flex-direction: column; justify-content: flex-start; margin: 50px 5px 0 5px; }
 
 .search-selectors-tags { display: flex; flex-direction: row; justify-content: flex-start; margin-bottom: 20px; }
 
