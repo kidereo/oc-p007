@@ -4,7 +4,9 @@
 
 h2 { font-size: inherit; font-weight: inherit; margin: 0; }
 
-h3 { text-align: right; padding: 5px; margin: 0; }
+h3 { text-align: right; padding: 5px; margin: 0 0 5px 0; }
+
+h3 span { background-color: white; padding: 5px; border-radius: 5px; display: inline-block; width: 35px; text-align: center; }
 
 body { font-family: "Roboto Flex", sans-serif; margin: 0; }
 
@@ -46,7 +48,7 @@ header .logo { height: 100px; }
 
 .search-selectors .colour-utensils { color: white; border: 1px solid #e64c43; background-color: #e64c43; border-radius: 5px; }
 
-.recipe-cards { margin-top: 50px; display: grid; grid-template-columns: 1fr 1fr 1fr; }
+.recipe-cards { margin-top: 50px; margin-bottom: 50px; display: grid; grid-template-columns: 1fr 1fr 1fr; }
 
 .recipe-cards article { padding: 5px; margin: 10px; box-shadow: 0 0 10px lightgray; line-height: 25px; border-radius: 5px; background-color: #e0e0e0; }
 

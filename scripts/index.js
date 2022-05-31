@@ -46,16 +46,14 @@ async function displayData(recipes) {
 
         h2.textContent = recipe.name;
 
-        icon.classList.add("far");
-        icon.classList.add("fa-clock");
+        icon.classList.add("far", "fa-clock");
 
         timeSpan.textContent = recipe.time + " min";
 
-        pDescription.textContent = recipe.description.slice(0,350).concat("...");
+        pDescription.textContent = recipe.description;
+        //pDescription.textContent = recipe.description.slice(0,350).concat(" ... ");
 
-        pIngredient.textContent = "Ingredient";
-
-        pId.innerText = recipe.id;
+        pId.innerHTML = "<span>" + recipe.id + "</span>";
 
         /**
          * Loop through the ingredients for each recipe.
