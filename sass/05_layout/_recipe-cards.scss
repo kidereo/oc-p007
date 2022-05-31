@@ -5,7 +5,7 @@
   grid-template-columns: 1fr 1fr 1fr;
 
   & article {
-    padding: 5px;
+    padding: 5px 15px 5px 15px;
     margin: 10px;
     box-shadow: 0 0 10px lightgray;
     line-height: 25px;
@@ -48,7 +48,7 @@
 
     & p {
       margin: 0;
-      padding-bottom: 15px;
+      padding-bottom: 10px;
       line-height: 17px;
     }
 

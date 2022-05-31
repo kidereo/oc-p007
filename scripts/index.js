@@ -50,8 +50,13 @@ async function displayData(recipes) {
 
         timeSpan.textContent = recipe.time + " min";
 
-        pDescription.textContent = recipe.description;
-        //pDescription.textContent = recipe.description.slice(0,350).concat(" ... ");
+        //Truncate descriptions if they are too long;
+        if (recipe.description.length < 349) {
+            pDescription.textContent = recipe.description;
+        } else {
+            pDescription.textContent = recipe.description.slice(0, 350).concat(" ... ");
+        }
+
 
         pId.innerHTML = "<span>" + recipe.id + "</span>";
 

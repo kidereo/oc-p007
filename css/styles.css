@@ -50,7 +50,7 @@ header .logo { height: 100px; }
 
 .recipe-cards { margin-top: 50px; margin-bottom: 50px; display: grid; grid-template-columns: 1fr 1fr 1fr; }
 
-.recipe-cards article { padding: 5px; margin: 10px; box-shadow: 0 0 10px lightgray; line-height: 25px; border-radius: 5px; background-color: #e0e0e0; }
+.recipe-cards article { padding: 5px 15px 5px 15px; margin: 10px; box-shadow: 0 0 10px lightgray; line-height: 25px; border-radius: 5px; background-color: #e0e0e0; }
 
 .recipe-cards img { height: 250px; width: 100%; object-fit: cover; border-top-right-radius: 5px; border-top-left-radius: 5px; }
 
@@ -62,7 +62,7 @@ header .logo { height: 100px; }
 
 .recipe-cards .recipe-card-main { display: flex; justify-content: space-between; margin-top: 15px; }
 
-.recipe-cards .recipe-card-main p { margin: 0; padding-bottom: 15px; line-height: 17px; }
+.recipe-cards .recipe-card-main p { margin: 0; padding-bottom: 10px; line-height: 17px; }
 
 .recipe-cards .recipe-card-main-ingredients { flex: 0 0 40%; margin-right: 10px; }
 
