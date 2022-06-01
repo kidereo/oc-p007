@@ -87,6 +87,7 @@ labelUtensil.addEventListener('focusout', () => {
  */
 function hide(element) {
     element.style.display = "none";
+    element.classList.add("hidden");
 }
 
 /**
@@ -96,6 +97,7 @@ function hide(element) {
  */
 function show(element) {
     element.style.display = "";
+    element.classList.remove("hidden");
 }
 
 /**

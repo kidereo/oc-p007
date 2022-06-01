@@ -46,6 +46,7 @@ async function displayData(recipes) {
         const cardMainDiv = document.createElement("div");
         cardMainDiv.classList.add("recipe-card-main");
         const pDescription = document.createElement("p");
+        pDescription.classList.add("recipe-card-main-description");
         const cardMainIngredientsDiv = document.createElement("div");
         cardMainIngredientsDiv.classList.add("recipe-card-main-ingredients");
         const headingId = document.createElement("h3");
@@ -94,6 +95,7 @@ async function displayData(recipes) {
         /**
          * Truncate descriptions if they are too long.
          */
+
         if (recipe.description.length < 350) {
             pDescription.textContent = recipe.description;
         } else {
