@@ -55,10 +55,35 @@ async function displayData(recipes) {
          */
         headingId.innerHTML = "<span>" + recipe.id + "</span>";
 
-        Object.assign(image, {
-            src: "assets/images/recipe-book.jpg",
-            alt: "Recipe image placeholder",
-        });
+        /**
+         * Add random images to cards.
+         */
+        let randomImage = [
+            "https://foodish-api.herokuapp.com/images/burger/burger38.jpg",
+            "https://foodish-api.herokuapp.com/images/dessert/dessert12.jpg",
+            "https://foodish-api.herokuapp.com/images/pizza/pizza11.jpg",
+            "https://foodish-api.herokuapp.com/images/rice/rice9.jpg",
+            "https://foodish-api.herokuapp.com/images/pasta/pasta19.jpg",
+            "https://foodish-api.herokuapp.com/images/burger/burger36.jpg",
+            "https://foodish-api.herokuapp.com/images/dessert/dessert30.jpg",
+            "https://foodish-api.herokuapp.com/images/pizza/pizza60.jpg",
+            "https://foodish-api.herokuapp.com/images/rice/rice22.jpg",
+            "https://foodish-api.herokuapp.com/images/pasta/pasta9.jpg",
+        ];
+
+        let randomImageIndex = Math.floor(Math.random() * randomImage.length);
+
+        if (randomImage.length > 0) {
+            Object.assign(image, {
+                src: randomImage[randomImageIndex],
+                alt: "Recipe image",
+            });
+        } else {
+            Object.assign(image, {
+                src: "assets/images/recipe-book.jpg",
+                alt: "Recipe image placeholder",
+            })
+        }
 
         h2.textContent = recipe.name;
 

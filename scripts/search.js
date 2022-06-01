@@ -95,7 +95,7 @@ function hide(element) {
  * @param element
  */
 function show(element) {
-    element.style.display = "flex";
+    element.style.display = "";
 }
 
 /**
