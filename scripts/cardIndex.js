@@ -22,7 +22,13 @@ async function init() {
 async function displayData(recipes) {
 
     const recipeSection = document.getElementById("recipe-cards");
+    const ulIngredients = document.getElementById("ingredient-list");
+    const ulAppliances = document.getElementById("appliance-list");
+    const ulUtensils = document.getElementById("utensil-list");
 
+    let ingredientsList = [];
+    let appliancesList = [];
+    let utensilsList = [];
     /**
      * Loop through every recipe.
      */
@@ -122,7 +128,6 @@ async function displayData(recipes) {
             cardMainIngredientsDiv.appendChild(pIngredient);
         }
 
-
         /**
          * Append elements to each other and to their article.
          */
@@ -144,28 +149,48 @@ async function displayData(recipes) {
         recipeSection.appendChild(article);
 
         /**
-         * Append ingredients to their selector
+         * Create a master list of all ingredients.
          */
-        const ulIngredients = document.getElementById("ingredient-list");
-        const liIngredient = document.createElement("li");
-
-        let ingredientsList = [];
         recipe.ingredients.forEach(function (detail) {
             ingredientsList.push(detail.ingredient);
         });
-        ingredientsList.forEach(function (ingredient) {
-            console.log(ingredient);
-            liIngredient.textContent = capitalizeFirstLetter(ingredient);
-            ulIngredients.appendChild(liIngredient);
-        });
 
-        /*for (let ingredient in ingredientsList) {
-           // console.log(ingredientsList[ingredient]);
-            liIngredient.textContent = capitalizeFirstLetter(ingredientsList[ingredient]);
-            ulIngredients.appendChild(liIngredient);
-        }*/
-        //console.log(ingredientsList);
+        /**
+         * Create a master list of all appliances.
+         */
+        appliancesList.push(recipe.appliance);
 
+        /**
+         * Create a master list of all utensils.
+         */
+        utensilsList.push(recipe.ustensils);
+    }
+
+    /**
+     * Remove duplicates from ingredient, appliance and utensil Lists.
+     * Specifically for the utensil list, it is necessary to flatten it and convert to lowercase for duplicate removal
+     * as Set() is case sensitive.
+     *
+     * @type {*[]}
+     */
+    let uniqueIngredientList = [...new Set(ingredientsList)].sort();
+    let uniqueApplianceList = [...new Set(appliancesList)].sort();
+    let equalisedUtensilList = utensilsList.flat().map(x => typeof x === 'string' ? x.toLowerCase() : x);
+    let uniqueUtensilList = [...new Set(equalisedUtensilList)].sort();
+
+    /**
+     * Append ingredients, appliances and utensils to relevant search selector.
+     */
+    for (let uniqueIngredient in uniqueIngredientList) {
+        ulIngredients.innerHTML += "<li>" + capitalizeFirstLetter(uniqueIngredientList[uniqueIngredient]) + "</li>";
+    }
+
+    for (let uniqueAppliance in uniqueApplianceList) {
+        ulAppliances.innerHTML += "<li>" + capitalizeFirstLetter(uniqueApplianceList[uniqueAppliance]) + "</li>";
+    }
+
+    for (let uniqueUtensil in uniqueUtensilList) {
+        ulUtensils.innerHTML += "<li>" + capitalizeFirstLetter(uniqueUtensilList[uniqueUtensil]) + "</li>";
     }
 
     /**

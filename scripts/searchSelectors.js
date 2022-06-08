@@ -18,6 +18,7 @@ const labelAppliance = document.querySelector("#appliance-selector-label");
 const spanAppliance = document.querySelector("#appliance-selector-label span");
 const inputAppliance = document.querySelector("#appliance-selector-label input");
 const iAppliance = document.querySelector("#appliance-selector-label i");
+const ulAppliance = document.getElementById("appliance-list");
 
 /**
  * DOM elements for utensil search.
@@ -28,6 +29,7 @@ const labelUtensil = document.querySelector("#utensil-selector-label");
 const spanUtensil = document.querySelector("#utensil-selector-label span");
 const inputUtensil = document.querySelector("#utensil-selector-label input");
 const iUtensil = document.querySelector("#utensil-selector-label i");
+const ulUtensil = document.getElementById("utensil-list");
 
 
 /**
@@ -55,14 +57,16 @@ labelIngredient.addEventListener('focusout', () => {
 labelAppliance.addEventListener('click', () => {
     hide(spanAppliance);
     show(inputAppliance);
-    swapClass(iAppliance, "fa-chevron-down", "fa-search")
-    setWidth(labelAppliance, "350px");
+    show(ulAppliance);
+    swapClass(iAppliance, "fa-chevron-down", "fa-chevron-up")
+    setWidth(labelAppliance, "550px");
 });
 
 labelAppliance.addEventListener('focusout', () => {
     hide(inputAppliance);
+    hide(ulAppliance);
     show(spanAppliance);
-    swapClass(iAppliance, "fa-search", "fa-chevron-down");
+    swapClass(iAppliance, "fa-chevron-up", "fa-chevron-down");
     setWidth(labelAppliance, "150px");
 });
 
@@ -72,14 +76,16 @@ labelAppliance.addEventListener('focusout', () => {
 labelUtensil.addEventListener('click', () => {
     hide(spanUtensil);
     show(inputUtensil);
-    swapClass(iUtensil, "fa-chevron-down", "fa-search")
-    setWidth(labelUtensil, "350px");
+    show(ulUtensil);
+    swapClass(iUtensil, "fa-chevron-down", "fa-chevron-up")
+    setWidth(labelUtensil, "550px");
 });
 
 labelUtensil.addEventListener('focusout', () => {
     hide(inputUtensil);
+    hide(ulUtensil);
     show(spanUtensil);
-    swapClass(iUtensil, "fa-search", "fa-chevron-down");
+    swapClass(iUtensil, "fa-chevron-up", "fa-chevron-down");
     setWidth(labelUtensil, "150px");
 });
 

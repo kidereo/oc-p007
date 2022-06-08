@@ -67,13 +67,15 @@
     }
 
     & ul {
-      column-count: 3;
+      column-count: 2;
       padding: 5px;
+      //width: 550px;
       //position:absolute;
 
       & li {
         display: block;
         list-style: none;
+        word-wrap: break-word;
       }
     }
 

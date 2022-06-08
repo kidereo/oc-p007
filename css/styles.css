@@ -40,9 +40,9 @@ header .logo { height: 100px; }
 
 .search-selectors .search-selector label input[type=text]::placeholder { color: white; }
 
-.search-selectors .search-selector ul { column-count: 3; padding: 5px; }
+.search-selectors .search-selector ul { column-count: 2; padding: 5px; }
 
-.search-selectors .search-selector ul li { display: block; list-style: none; }
+.search-selectors .search-selector ul li { display: block; list-style: none; word-wrap: break-word; }
 
 .search-selectors .search-selector .hidden { display: none; }
 
