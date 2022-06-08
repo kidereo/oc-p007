@@ -38,9 +38,11 @@
   & .search-selector {
     font-weight: 500;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: space-between;
     margin-right: 20px;
+    align-self: flex-start;
 
     & label {
       display: flex;
@@ -61,6 +63,17 @@
         &::placeholder {
           color: white;
         }
+      }
+    }
+
+    & ul {
+      column-count: 3;
+      padding: 5px;
+      //position:absolute;
+
+      & li {
+        display: block;
+        list-style: none;
       }
     }
 

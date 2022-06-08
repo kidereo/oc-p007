@@ -13,3 +13,4 @@ async function getData() {
         'recipes': recipeData
     }
 }
+

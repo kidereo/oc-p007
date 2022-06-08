@@ -7,6 +7,7 @@ const labelIngredient = document.querySelector("#ingredient-selector-label");
 const spanIngredient = document.querySelector("#ingredient-selector-label span");
 const inputIngredient = document.querySelector("#ingredient-selector-label input");
 const iIngredient = document.querySelector("#ingredient-selector-label i");
+const ulIngredient = document.getElementById("ingredient-list");
 
 /**
  * DOM elements for appliance search.
@@ -35,14 +36,16 @@ const iUtensil = document.querySelector("#utensil-selector-label i");
 labelIngredient.addEventListener('click', () => {
     hide(spanIngredient);
     show(inputIngredient);
-    swapClass(iIngredient, "fa-chevron-down", "fa-search")
-    setWidth(labelIngredient, "350px");
+    show(ulIngredient);
+    swapClass(iIngredient, "fa-chevron-down", "fa-chevron-up");
+    setWidth(labelIngredient, "550px");
 });
 
 labelIngredient.addEventListener('focusout', () => {
     hide(inputIngredient);
+    hide(ulIngredient);
     show(spanIngredient);
-    swapClass(iIngredient, "fa-search", "fa-chevron-down");
+    swapClass(iIngredient, "fa-chevron-up", "fa-chevron-down");
     setWidth(labelIngredient, "150px");
 });
 

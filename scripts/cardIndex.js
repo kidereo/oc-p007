@@ -95,7 +95,6 @@ async function displayData(recipes) {
         /**
          * Truncate descriptions if they are too long.
          */
-
         if (recipe.description.length < 350) {
             pDescription.textContent = recipe.description;
         } else {
@@ -123,6 +122,7 @@ async function displayData(recipes) {
             cardMainIngredientsDiv.appendChild(pIngredient);
         }
 
+
         /**
          * Append elements to each other and to their article.
          */
@@ -142,5 +142,39 @@ async function displayData(recipes) {
          * Append article to the DOM.
          */
         recipeSection.appendChild(article);
+
+        /**
+         * Append ingredients to their selector
+         */
+        const ulIngredients = document.getElementById("ingredient-list");
+        const liIngredient = document.createElement("li");
+
+        let ingredientsList = [];
+        recipe.ingredients.forEach(function (detail) {
+            ingredientsList.push(detail.ingredient);
+        });
+        ingredientsList.forEach(function (ingredient) {
+            console.log(ingredient);
+            liIngredient.textContent = capitalizeFirstLetter(ingredient);
+            ulIngredients.appendChild(liIngredient);
+        });
+
+        /*for (let ingredient in ingredientsList) {
+           // console.log(ingredientsList[ingredient]);
+            liIngredient.textContent = capitalizeFirstLetter(ingredientsList[ingredient]);
+            ulIngredients.appendChild(liIngredient);
+        }*/
+        //console.log(ingredientsList);
+
+    }
+
+    /**
+     * Helper function to capitalise first letter.
+     *
+     * @param string
+     * @returns {string}
+     */
+    function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
     }
 }
