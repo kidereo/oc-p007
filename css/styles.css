@@ -10,6 +10,12 @@ h3 span { background-color: white; padding: 5px; border-radius: 5px; display: in
 
 body { font-family: "Roboto Flex", sans-serif; margin: 0; }
 
+.search-result-message { display: none; justify-content: space-between; margin: 50px 5px 0 5px; align-items: center; background-color: orange; color: white; font-weight: 500; border-radius: 5px; }
+
+.search-result-message span { padding: 20px 10px 20px 20px; font-size: larger; margin-right: 20px; }
+
+.search-result-message i { padding: 20px 20px 20px 10px; font-size: x-large; }
+
 header { display: flex; justify-content: center; align-items: center; height: 150px; }
 
 header .logo { height: 100px; }

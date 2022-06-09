@@ -9,6 +9,7 @@ async function reinit() {
     const ulIngredients = document.getElementById("ingredient-list");
     const ulAppliances = document.getElementById("appliance-list");
     const ulUtensils = document.getElementById("utensil-list");
+    const searchResultMessage = document.getElementById("search-result-message");
 
     /**
      * Clear cards section and search selectors from all previous entries.
@@ -24,14 +25,25 @@ async function reinit() {
      * Send filtered data to index cards if the input is 3 chars or more.
      */
     if (query.length >= 3) {
-        displayData(recipes.filter(recipe =>
+        let filteredRecipes = recipes.filter(recipe =>
             recipe.name.toUpperCase().includes(query) ||
             recipe.description.toUpperCase().includes(query) ||
-            recipe.ingredients.some(detail =>
-                detail.ingredient.toUpperCase().includes(query)
-            ))
-        );
-    } else init();
+            recipe.ingredients.some(detail => detail.ingredient.toUpperCase().includes(query)));
+        if (filteredRecipes.length === 0) {
+            searchResultMessage.innerHTML = "<span>Aucune recette ne correspond à votre critère… vous pouvez chercher «tarte aux pommes», «poisson», etc.</span><i class='fas fa-thumbs-down'></i>";
+            searchResultMessage.style.backgroundColor = "DarkOrange";
+            searchResultMessage.style.display = "flex";
+        } else {
+            searchResultMessage.innerHTML = "<span>Vous avez trouvé " + filteredRecipes.length + " recettes à déguster!</span><i class='fas fa-thumbs-up'></i>";
+            searchResultMessage.style.backgroundColor = "DeepSkyBlue";
+            searchResultMessage.style.display = "flex";
+            displayData(filteredRecipes);
+        }
+    } else {
+        searchResultMessage.style.display = "";
+        init();
+    }
 }
+
 
 
