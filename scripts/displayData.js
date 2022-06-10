@@ -1,26 +1,10 @@
 /**
- * Display recipe cards on index.html.
- */
-init();
-
-/**
- * Prepare for displaying recipe cards.
- *
- * @returns {Promise<void>}
- */
-async function init() {
-    const {recipes} = await getData();
-    displayData(recipes);
-}
-
-/**
  * Build up the recipe card section with the cards.
  *
  * @param recipes
  * @returns {Promise<void>}
  */
 async function displayData(recipes) {
-
     const recipeSection = document.getElementById("recipe-cards");
     const ulIngredients = document.getElementById("ingredient-list");
     const ulAppliances = document.getElementById("appliance-list");

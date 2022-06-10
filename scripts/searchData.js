@@ -1,4 +1,9 @@
 /**
+ * Display recipe cards on index.html.
+ */
+reinit();
+
+/**
  * Reinitialise card index based on search parameters.
  */
 async function reinit() {
@@ -23,6 +28,7 @@ async function reinit() {
 
     /**
      * Send filtered data to index cards if the input is 3 chars or more.
+     * Generate and display appropriate search messages.
      */
     if (query.length >= 3) {
         let filteredRecipes = recipes.filter(recipe =>
@@ -30,18 +36,18 @@ async function reinit() {
             recipe.description.toUpperCase().includes(query) ||
             recipe.ingredients.some(detail => detail.ingredient.toUpperCase().includes(query)));
         if (filteredRecipes.length === 0) {
-            searchResultMessage.innerHTML = "<span>Aucune recette ne correspond à votre critère… vous pouvez chercher «tarte aux pommes», «poisson», etc.</span><i class='fas fa-thumbs-down'></i>";
+            searchResultMessage.innerHTML = "<span>Aucune recette ne correspond à votre critère… vous pouvez chercher «tarte aux pommes», «poisson», etc.</span><i class='fas fa-sad-tear'></i></i>";
             searchResultMessage.style.backgroundColor = "DarkOrange";
             searchResultMessage.style.display = "flex";
         } else {
-            searchResultMessage.innerHTML = "<span>Vous avez trouvé " + filteredRecipes.length + " recettes à déguster!</span><i class='fas fa-thumbs-up'></i>";
+            searchResultMessage.innerHTML = "<span>Vous avez trouvé " + filteredRecipes.length + " recettes à déguster!</span><i class='fas fa-grin-squint'></i></i>";
             searchResultMessage.style.backgroundColor = "DeepSkyBlue";
             searchResultMessage.style.display = "flex";
             displayData(filteredRecipes);
         }
     } else {
         searchResultMessage.style.display = "";
-        init();
+        displayData(recipes);
     }
 }
 
