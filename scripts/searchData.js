@@ -29,6 +29,7 @@ async function reinit() {
     /**
      * Send filtered data to index cards if the input is 3 chars or more.
      * Generate and display appropriate search messages.
+     * Show all recipes if query is less than 3 characters.
      */
     if (query.length >= 3) {
         let filteredRecipes = recipes.filter(recipe =>

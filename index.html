@@ -27,7 +27,8 @@
     <main id="main">
         <!--Search result message-->
         <div class="search-result-message" id="search-result-message">
-            <span>Text will come from js when needed.</span><i>Text will come from js when needed.</i>
+            <span>Text will come from js when needed.</span>
+            <i>Icon will come from js when needed.</i>
         </div>
 
         <!--Search form-->
@@ -69,6 +70,7 @@
                                 type="text"
                                 id="ingredient"
                                 placeholder="Rechercher un ingrédient ..."
+                                onkeyup="reinit()"
                         />
                         <i class="fas fa-chevron-down" id="ingredient-selector-icon"></i>
                     </label>
