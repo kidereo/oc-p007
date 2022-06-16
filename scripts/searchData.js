@@ -62,7 +62,7 @@ async function init() {
                 filteredRecipe.ingredients.some(detail => detail.ingredient.toUpperCase().includes(inputIngredient)) &&
                 filteredRecipe.appliance.toUpperCase().includes(inputAppliance) &&
                 filteredRecipe.ustensils.find(detail => detail.toUpperCase().includes(inputUtensil)));
-            if(extraFilteredRecipes.length === 0) {
+            if (extraFilteredRecipes.length === 0) {
                 messageNoRecipeFound(searchResultMessage);
             } else {
                 displayData(extraFilteredRecipes);
@@ -95,9 +95,15 @@ function messageNoRecipeFound(element) {
  * @param array
  */
 function messageRecipeFound(element, array) {
-    element.innerHTML = "<span>Vous avez trouvé " + array.length + " recettes à déguster!</span><i class='fas fa-grin-squint'></i></i>";
-    element.style.backgroundColor = "DeepSkyBlue";
-    element.style.display = "flex";
+    if (array.length === 1) {
+        element.innerHTML = "<span>Vous avez trouvé " + array.length + " recette à déguster!</span><i class='fas fa-grin-squint'></i></i>";
+        element.style.backgroundColor = "DeepSkyBlue";
+        element.style.display = "flex";
+    } else {
+        element.innerHTML = "<span>Vous avez trouvé " + array.length + " recettes à déguster!</span><i class='fas fa-grin-squint'></i></i>";
+        element.style.backgroundColor = "DeepSkyBlue";
+        element.style.display = "flex";
+    }
 }
 
 
