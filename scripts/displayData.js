@@ -159,7 +159,7 @@ async function displayData(recipes) {
      */
     let uniqueIngredientList = [...new Set(ingredientsList)].sort();
     let uniqueApplianceList = [...new Set(appliancesList)].sort();
-    let equalisedUtensilList = utensilsList.flat().map(x => typeof x === 'string' ? x.toLowerCase() : x);
+    let equalisedUtensilList = utensilsList.flat().map(detail => typeof detail === 'string' ? detail.toLowerCase() : detail);
     let uniqueUtensilList = [...new Set(equalisedUtensilList)].sort();
 
     /**

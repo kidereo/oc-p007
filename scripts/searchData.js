@@ -1,20 +1,38 @@
 /**
  * Display recipe cards on index.html.
  */
-reinit();
+init();
 
 /**
  * Reinitialise card index based on search parameters.
  */
-async function reinit() {
+async function init() {
+
+    /**
+     * Get the data.
+     */
     const {recipes} = await getData();
-    const input = document.getElementById("search-form-input");
-    const query = input.value.toUpperCase();
+
+    /**
+     * DOM elements.
+     *
+     * @type {HTMLElement}
+     */
     const recipeCardsSection = document.getElementById("recipe-cards");
     const ulIngredients = document.getElementById("ingredient-list");
     const ulAppliances = document.getElementById("appliance-list");
     const ulUtensils = document.getElementById("utensil-list");
     const searchResultMessage = document.getElementById("search-result-message");
+
+    /**
+     * Search inputs converted to upper case to make results case insensitive.
+     *
+     * @type {string}
+     */
+    const inputMainSearch = document.getElementById("search-form-input").value.toUpperCase();
+    const inputIngredient = document.getElementById("ingredient").value.toUpperCase();
+    const inputAppliance = document.getElementById("appliance").value.toUpperCase();
+    const inputUtensil = document.getElementById("utensil").value.toUpperCase();
 
     /**
      * Clear cards section and search selectors from all previous entries.
@@ -26,31 +44,66 @@ async function reinit() {
     ulAppliances.innerHTML = "";
     ulUtensils.innerHTML = "";
 
+
     /**
-     * Send filtered data to index cards if the input is 3 chars or more.
+     * Send filtered data to index cards if the main search input is 3 chars or more.
      * Generate and display appropriate search messages.
      * Show all recipes if query is less than 3 characters.
      */
-    if (query.length >= 3) {
+    if (inputMainSearch.length >= 3) {
         let filteredRecipes = recipes.filter(recipe =>
-            recipe.name.toUpperCase().includes(query) ||
-            recipe.description.toUpperCase().includes(query) ||
-            recipe.ingredients.some(detail => detail.ingredient.toUpperCase().includes(query)));
+            recipe.name.toUpperCase().includes(inputMainSearch) ||
+            recipe.description.toUpperCase().includes(inputMainSearch) ||
+            recipe.ingredients.some(detail => detail.ingredient.toUpperCase().includes(inputMainSearch)));
         if (filteredRecipes.length === 0) {
-            searchResultMessage.innerHTML = "<span>Aucune recette ne correspond à votre critère… vous pouvez chercher «tarte aux pommes», «poisson», etc.</span><i class='fas fa-sad-tear'></i></i>";
-            searchResultMessage.style.backgroundColor = "DarkOrange";
-            searchResultMessage.style.display = "flex";
+            messageNoRecipeFound(searchResultMessage);
         } else {
-            searchResultMessage.innerHTML = "<span>Vous avez trouvé " + filteredRecipes.length + " recettes à déguster!</span><i class='fas fa-grin-squint'></i></i>";
-            searchResultMessage.style.backgroundColor = "DeepSkyBlue";
-            searchResultMessage.style.display = "flex";
-            displayData(filteredRecipes);
+            let extraFilteredRecipes = filteredRecipes.filter(filteredRecipe =>
+                filteredRecipe.ingredients.some(detail => detail.ingredient.toUpperCase().includes(inputIngredient)) &&
+                filteredRecipe.appliance.toUpperCase().includes(inputAppliance) &&
+                filteredRecipe.ustensils.find(detail => detail.toUpperCase().includes(inputUtensil)));
+            if(extraFilteredRecipes.length === 0) {
+                messageNoRecipeFound(searchResultMessage);
+            } else {
+                displayData(extraFilteredRecipes);
+                messageRecipeFound(searchResultMessage, extraFilteredRecipes);
+                console.clear();
+                console.log(extraFilteredRecipes);
+            }
         }
     } else {
         searchResultMessage.style.display = "";
         displayData(recipes);
     }
 }
+
+/**
+ * Message if no recipe is found.
+ *
+ * @param element
+ */
+function messageNoRecipeFound(element) {
+    element.innerHTML = "<span>Aucune recette ne correspond à votre critère… vous pouvez chercher «tarte aux pommes», «poisson», etc.</span><i class='fas fa-sad-tear'></i></i>";
+    element.style.backgroundColor = "DarkOrange";
+    element.style.display = "flex";
+}
+
+/**
+ * Message if there are recipes available.
+ *
+ * @param element
+ * @param array
+ */
+function messageRecipeFound(element, array) {
+    element.innerHTML = "<span>Vous avez trouvé " + array.length + " recettes à déguster!</span><i class='fas fa-grin-squint'></i></i>";
+    element.style.backgroundColor = "DeepSkyBlue";
+    element.style.display = "flex";
+}
+
+
+
+
+
 
 
 
