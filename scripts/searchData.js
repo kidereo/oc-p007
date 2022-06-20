@@ -97,13 +97,11 @@ function messageNoRecipeFound(element) {
 function messageRecipeFound(element, array) {
     if (array.length === 1) {
         element.innerHTML = "<span>Vous avez trouvé " + array.length + " recette à déguster!</span><i class='fas fa-grin-squint'></i></i>";
-        element.style.backgroundColor = "DeepSkyBlue";
-        element.style.display = "flex";
     } else {
         element.innerHTML = "<span>Vous avez trouvé " + array.length + " recettes à déguster!</span><i class='fas fa-grin-squint'></i></i>";
-        element.style.backgroundColor = "DeepSkyBlue";
-        element.style.display = "flex";
     }
+    element.style.backgroundColor = "DeepSkyBlue";
+    element.style.display = "flex";
 }
 
 
