@@ -28,6 +28,7 @@ const liIngredients = ulIngredient.getElementsByTagName("li");
  */
 spanIngredient.addEventListener('click', () => {
     closeAppliances();
+    closeUtensils();
     hide(spanIngredient);
     show(inputIngredient);
     show(ulIngredient);
@@ -42,12 +43,10 @@ spanIngredient.addEventListener('click', () => {
 iIngredient.addEventListener("click", () => {
     if (iIngredient.classList.contains("active")) {
         iIngredient.classList.remove("active");
-        hide(inputIngredient);
-        hide(ulIngredient);
-        show(spanIngredient);
-        swapClass(iIngredient, "fa-chevron-up", "fa-chevron-down");
-        setWidth(labelIngredient, "150px");
+        closeIngredients();
     } else {
+        closeAppliances();
+        closeUtensils();
         hide(spanIngredient);
         show(inputIngredient);
         show(ulIngredient);
@@ -68,17 +67,6 @@ ulIngredient.addEventListener("click", function (e) {
         e.target.classList.add("hidden");
         //Add the item as a new tag
         searchTags.innerHTML += "<input type='button' class='search-tag colour-ingredients' value='" + e.target.innerText + "' onclick='restoreIngredient(value)'>";
-    }
-    init();
-});
-
-/**
- * [1] Remove the ingredient tag from the search tags area.
- * [2] Relaunch recipe search.
- */
-searchTags.addEventListener("click", function (e) {
-    if (e.target && e.target.matches("input")) {
-        e.target.remove();
     }
     init();
 });
@@ -144,6 +132,7 @@ const liAppliances = ulAppliance.getElementsByTagName("li");
  */
 spanAppliance.addEventListener('click', () => {
     closeIngredients();
+    closeUtensils();
     hide(spanAppliance);
     show(inputAppliance);
     show(ulAppliance);
@@ -158,12 +147,10 @@ spanAppliance.addEventListener('click', () => {
 iAppliance.addEventListener("click", () => {
     if (iAppliance.classList.contains("active")) {
         iAppliance.classList.remove("active");
-        hide(inputAppliance);
-        hide(ulAppliance);
-        show(spanAppliance);
-        swapClass(iAppliance, "fa-chevron-up", "fa-chevron-down");
-        setWidth(labelAppliance, "150px");
+        closeAppliances();
     } else {
+        closeIngredients();
+        closeUtensils();
         hide(spanAppliance);
         show(inputAppliance);
         show(ulAppliance);
@@ -187,9 +174,6 @@ ulAppliance.addEventListener("click", function (e) {
     }
     init();
 });
-
-
-
 
 /**
  * Appliance search functions.
@@ -231,16 +215,6 @@ function closeAppliances() {
     setWidth(labelAppliance, "150px");
 }
 
-
-
-
-
-
-
-
-
-
-
 /**
  * DOM elements for utensil search.
  *
@@ -248,28 +222,99 @@ function closeAppliances() {
  */
 const labelUtensil = document.querySelector("#utensil-selector-label");
 const spanUtensil = document.querySelector("#utensil-selector-label span");
+const filterUtensil = document.getElementById("utensil");
 const inputUtensil = document.querySelector("#utensil-selector-label input");
 const iUtensil = document.querySelector("#utensil-selector-label i");
 const ulUtensil = document.getElementById("utensil-list");
+const liUtensils = ulUtensil.getElementsByTagName("li");
 
 /**
  * Event listeners for utensils search.
  */
-labelUtensil.addEventListener('click', () => {
+spanUtensil.addEventListener('click', () => {
+    closeIngredients();
+    closeAppliances();
     hide(spanUtensil);
     show(inputUtensil);
     show(ulUtensil);
     swapClass(iUtensil, "fa-chevron-down", "fa-chevron-up")
     setWidth(labelUtensil, "550px");
+    iUtensil.classList.add("active");
 });
 
-labelUtensil.addEventListener('focusout', () => {
+/**
+ * Furl/Unfurl the dropdown by clicking on its icon.
+ */
+iUtensil.addEventListener("click", () => {
+    if (iUtensil.classList.contains("active")) {
+        iUtensil.classList.remove("active");
+        closeUtensils();
+    } else {
+        closeIngredients();
+        closeAppliances();
+        hide(spanUtensil);
+        show(inputUtensil);
+        show(ulUtensil);
+        swapClass(iUtensil, "fa-chevron-down", "fa-chevron-up");
+        setWidth(labelUtensil, "550px");
+        iUtensil.classList.add("active");
+    }
+});
+
+/**
+ * [1] Hide clicked utensil from the utensil dropdown list.
+ * [2] Add a new utensil tag as a button.
+ * [3] Relaunch recipe search.
+ */
+ulUtensil.addEventListener("click", function (e) {
+    if (e.target && e.target.matches("li.utensil")) {
+        //Hide the item from the ul list
+        e.target.classList.add("hidden");
+        //Add the item as a new tag
+        searchTags.innerHTML += "<input type='button' class='search-tag colour-utensils' value='" + e.target.innerText + "' onclick='restoreUtensil(value)'>";
+    }
+    init();
+});
+
+/**
+ * Utensil search functions.
+ */
+
+/**
+ * Restore the tagged appliance to the appliance dropdown list.
+ *
+ * @param value
+ */
+function restoreUtensil(value) {
+    for (let liUtensil of liUtensils) {
+        if (liUtensil.innerText === value)
+            liUtensil.classList.remove("hidden");
+    }
+}
+
+/**
+ * Search utensils dropdown input.
+ */
+function searchUtensils() {
+    for (let liUtensil of liUtensils) {
+        if (liUtensil.innerText.toUpperCase().includes(filterUtensil.value.toUpperCase())) {
+            liUtensil.style.display = "";
+        } else {
+            liUtensil.style.display = "none";
+        }
+    }
+}
+
+/**
+ * Furl the utensil dropdown.
+ */
+function closeUtensils() {
     hide(inputUtensil);
     hide(ulUtensil);
     show(spanUtensil);
     swapClass(iUtensil, "fa-chevron-up", "fa-chevron-down");
     setWidth(labelUtensil, "150px");
-});
+}
 
 /**
  * Helper function to hide an element.
@@ -319,4 +364,16 @@ function swapClass(element, classOut, classIn) {
 recipeCards.addEventListener("click", function () {
     closeIngredients();
     closeAppliances();
+    closeUtensils();
+});
+
+/**
+ * [1] Remove tags from the search tags area.
+ * [2] Relaunch recipe search.
+ */
+searchTags.addEventListener("click", function (e) {
+    if (e.target && e.target.matches("input")) {
+        e.target.remove();
+    }
+    init();
 });
