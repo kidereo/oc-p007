@@ -30,11 +30,11 @@ header .logo { height: 100px; }
 
 .search-selectors-tags { display: flex; flex-direction: row; justify-content: flex-start; margin-bottom: 20px; }
 
-.search-selectors-tags .search-tag { display: flex; flex-direction: row; align-items: center; justify-content: space-between; padding: 10px; font-size: medium; margin-right: 20px; }
+.search-selectors-tags .search-tag { display: flex; flex-direction: row; align-items: center; justify-content: space-between; padding: 10px; font-size: medium; margin-right: 20px; cursor: pointer; }
 
 .search-selectors-tags .search-tag span { margin-right: 10px; }
 
-.search-selectors-tags .search-tag i { cursor: pointer; }
+.search-selectors-tags .search-tag input { cursor: pointer; }
 
 .search-selectors-fieldsets { display: flex; flex-direction: row; justify-content: flex-start; }
 
@@ -48,7 +48,7 @@ header .logo { height: 100px; }
 
 .search-selectors .search-selector ul { column-count: 2; padding: 5px; }
 
-.search-selectors .search-selector ul li { display: block; list-style: none; word-wrap: break-word; }
+.search-selectors .search-selector ul li { display: block; list-style: none; word-wrap: break-word; cursor: pointer; }
 
 .search-selectors .search-selector .hidden { display: none; }
 

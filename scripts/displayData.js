@@ -166,15 +166,15 @@ async function displayData(recipes) {
      * Append ingredients, appliances and utensils to relevant search selector.
      */
     for (let uniqueIngredient in uniqueIngredientList) {
-        ulIngredients.innerHTML += "<li>" + capitalizeFirstLetter(uniqueIngredientList[uniqueIngredient]) + "</li>";
+        ulIngredients.innerHTML += "<li class='ingredient'>" + capitalizeFirstLetter(uniqueIngredientList[uniqueIngredient]) + "</li>";
     }
 
     for (let uniqueAppliance in uniqueApplianceList) {
-        ulAppliances.innerHTML += "<li>" + capitalizeFirstLetter(uniqueApplianceList[uniqueAppliance]) + "</li>";
+        ulAppliances.innerHTML += "<li class='appliance'>" + capitalizeFirstLetter(uniqueApplianceList[uniqueAppliance]) + "</li>";
     }
 
     for (let uniqueUtensil in uniqueUtensilList) {
-        ulUtensils.innerHTML += "<li>" + capitalizeFirstLetter(uniqueUtensilList[uniqueUtensil]) + "</li>";
+        ulUtensils.innerHTML += "<li class='utensil'>" + capitalizeFirstLetter(uniqueUtensilList[uniqueUtensil]) + "</li>";
     }
 
     /**

@@ -47,7 +47,7 @@
         <div class="search-selectors" id="search-selectors">
             <!--Selector tags-->
             <div class="search-selectors-tags" id="search-selectors-tags">
-                <div class="search-tag colour-ingredients">
+                <!--<div class="search-tag colour-ingredients">
                     <span>Coconut</span>
                     <i class="far fa-window-close"></i>
                 </div>
@@ -58,11 +58,11 @@
                 <div class="search-tag colour-utensils">
                     <span>Large teaspoon</span>
                     <i class="far fa-window-close"></i>
-                </div>
+                </div>-->
             </div>
             <!--Selector dropdown fieldsets-->
             <div class="search-selectors-fieldsets" >
-                <fieldset class="search-selector colour-ingredients" >
+                <fieldset id="ingredient-selector-fieldset" class="search-selector colour-ingredients" >
                     <label id="ingredient-selector-label" for="ingredient">
                         <span>Ingrédients</span>
                         <input
@@ -70,7 +70,7 @@
                                 type="text"
                                 id="ingredient"
                                 placeholder="Rechercher un ingrédient ..."
-                                onkeyup="init()"
+                                onkeyup="searchIngredients()"
                                 autocomplete="off"
                         />
                         <i class="fas fa-chevron-down" id="ingredient-selector-icon"></i>
@@ -86,7 +86,7 @@
                                 type="text"
                                 id="appliance"
                                 placeholder="Rechercher un appareil ..."
-                                onkeyup="init()"
+                                onkeyup="searchAppliances()"
                                 autocomplete="off"
                         />
                         <i class="fas fa-chevron-down" id="appliance-selector-icon"></i>
@@ -147,7 +147,7 @@
 <!--Scripts-->
 <!--<script src="data/recipes.js"></script>-->
 <script src="scripts/api.js"></script>
-<script src="scripts/searchData.js"></script>
+<script src="scripts/searchData1.js"></script>
 <script src="scripts/displayData.js"></script>
 <script src="scripts/searchSelectors.js"></script>
 

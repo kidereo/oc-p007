@@ -58,24 +58,19 @@ async function init() {
         if (filteredRecipes.length === 0) {
             messageNoRecipeFound(searchResultMessage);
         } else {
-            let extraFilteredRecipes = filteredRecipes.filter(filteredRecipe => {
-                return filteredRecipe.ingredients.some(detail => detail.ingredient.toUpperCase().includes(inputIngredient)) &&
-                filteredRecipe.appliance.toUpperCase().includes(inputAppliance) &&
-                filteredRecipe.ustensils.find(detail => detail.toUpperCase().includes(inputUtensil))
-            });
-            if (extraFilteredRecipes.length === 0) {
-                messageNoRecipeFound(searchResultMessage);
-            } else {
-                //let ft = filterByUtensil(extraFilteredRecipes, ["verres", 'couteau']);
-                displayData(extraFilteredRecipes);
-                messageRecipeFound(searchResultMessage, extraFilteredRecipes);
-                console.clear();
-                console.log(extraFilteredRecipes);
-            }
+            displayData(filteredRecipes);
+            messageRecipeFound(searchResultMessage, filteredRecipes);
         }
     } else {
         searchResultMessage.style.display = "";
-        displayData(recipes);
+        let recipesByIngredient = filterByIngredient(recipes, searchIngredientTags());
+        let filteredRecipes = filterByAppliance(recipesByIngredient, searchApplianceTags());
+
+
+        displayData(filteredRecipes);
+        if (filteredRecipes.length < recipes.length) {
+            messageRecipeFound(searchResultMessage, filteredRecipes);
+        }
     }
 }
 
@@ -106,9 +101,48 @@ function messageRecipeFound(element, array) {
     element.style.display = "flex";
 }
 
-function filterByUtensil( data, filters ) {
-    return data.filter( recipe => filters.every( filter => recipe.ustensils.includes(filter) ))
+/**
+ * Extract array of selected ingredient tags.
+ *
+ * @returns {string[]}
+ */
+function searchIngredientTags() {
+    return Array.from(
+        document.getElementsByClassName('search-tag colour-ingredients'),
+        tag => tag.getAttribute('value').toUpperCase());
 }
+
+/**
+ * Extract array of selected appliance tags.
+ *
+ * @returns {string[]}
+ */
+function searchApplianceTags() {
+    return Array.from(
+        document.getElementsByClassName('search-tag colour-appliances'),
+        tag => tag.getAttribute('value').toUpperCase());
+}
+
+/**
+ * Filter an incoming recipe array by an appropriate filter array.
+ * Note that in the code above incoming arrays are themselves filtered.
+ *
+ * @param data
+ * @param filters
+ * @returns {*}
+ */
+function filterByIngredient(data, filters) {
+    return data.filter(recipe => filters.every(filter => recipe.ingredients.some(detail => detail.ingredient.toUpperCase().includes(filter))));
+}
+
+function filterByAppliance(data, filters) {
+    return data.filter(recipe => filters.every(filter => recipe.appliance.toUpperCase().includes(filter)))
+}
+
+function filterByUtensil(data, filters) {
+    return data.filter(recipe => filters.every(filter => Array.from(recipe.ustensils).includes(filter)))
+}
+
 
 
 
