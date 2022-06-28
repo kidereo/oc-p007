@@ -1,4 +1,7 @@
 /**
+ * NOTE:THIS FILE IS NOT IN USE.
+ */
+/**
  * Search recipes in the main search form on titles, ingredients and descriptions.
  */
 function searchForm() {

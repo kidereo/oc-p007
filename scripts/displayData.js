@@ -13,6 +13,7 @@ async function displayData(recipes) {
     let ingredientsList = [];
     let appliancesList = [];
     let utensilsList = [];
+
     /**
      * Loop through every recipe.
      */
@@ -161,6 +162,43 @@ async function displayData(recipes) {
     let uniqueApplianceList = [...new Set(appliancesList)].sort();
     let equalisedUtensilList = utensilsList.flat().map(detail => typeof detail === 'string' ? detail.toLowerCase() : detail);
     let uniqueUtensilList = [...new Set(equalisedUtensilList)].sort();
+
+
+    /**
+     * Filter out any active tags from unique lists prior to building <li> elements.
+     */
+
+    //Convert unique lists to upper case. This is needed to reuse search...Tags() function from searchData.js
+    let uilUpper = uniqueIngredientList.map(detail => {
+            return detail.toUpperCase();
+        });
+    let ailUpper = uniqueApplianceList.map(detail => {
+        return detail.toUpperCase();
+    });
+    let usilUpper = uniqueUtensilList.map(detail => {
+        return detail.toUpperCase();
+    });
+
+    //Bring in results of the search...Tags() function from searchData.js
+    let ingredientTagsToRemove = new Set(searchIngredientTags());
+    let applianceTagsToRemove = new Set(searchApplianceTags());
+    let utensilTagsToRemove = new Set(searchUtensilTags());
+
+    //Filter out active tags
+    let uilUpperFiltered = uilUpper.filter(detail => !ingredientTagsToRemove.has(detail));
+    let ailUpperFiltered = ailUpper.filter(detail => !applianceTagsToRemove.has(detail));
+    let usilUpperFiltered = usilUpper.filter(detail => !utensilTagsToRemove.has(detail));
+
+    //Reconvert unique lists to lower case.
+    uniqueIngredientList = uilUpperFiltered.map(detail => {
+        return detail.toLowerCase();
+    });
+    uniqueApplianceList = ailUpperFiltered.map(detail => {
+        return detail.toLowerCase();
+    });
+    uniqueUtensilList = usilUpperFiltered.map(detail => {
+        return detail.toLowerCase();
+    });
 
     /**
      * Append ingredients, appliances and utensils to relevant search selector.
