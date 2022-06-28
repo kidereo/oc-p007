@@ -72,7 +72,7 @@ async function displayData(recipes) {
             });
         } else {
             Object.assign(image, {
-                src: "assets/images/recipe-book.jpg",
+                src: "assets/images/recipe-volume.jpg",
                 alt: "Recipe image placeholder",
             })
         }

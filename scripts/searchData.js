@@ -46,9 +46,10 @@ async function init() {
 
 
     /**
-     * Send filtered data to index cards if the main search input is 3 chars or more.
-     * Generate and display appropriate search messages.
-     * Show all recipes if query is less than 3 characters.
+     * [1] Send filtered recipe data to index cards if the main search input is 3 chars or more.
+     * [2] Generate and display appropriate search messages.
+     * [3] Show all recipes if query is less than 3 characters.
+     * [4] Subfilter recipes by ingredient, appliance or utensil search selector in all cases.
      */
     if (inputMainSearch.length >= 3) {
         let recipesByMainSearch = recipes.filter(recipe =>
@@ -63,7 +64,7 @@ async function init() {
             let filteredRecipes = filterByUtensil(recipesByAppliance, searchUtensilTags());
             displayData(filteredRecipes);
             messageRecipeFound(searchResultMessage, filteredRecipes);
-            console.clear()
+            console.clear();
             console.log(filteredRecipes);
         }
     } else {
@@ -75,7 +76,7 @@ async function init() {
             messageRecipeFound(searchResultMessage, filteredRecipes);
         }
         displayData(filteredRecipes);
-        console.clear()
+        console.clear();
         console.log(filteredRecipes);
     }
 }
@@ -159,12 +160,3 @@ function filterByAppliance(data, filters) {
 function filterByUtensil(data, filters) {
     return data.filter(recipe => filters.every(filter => recipe.ustensils.some(detail => detail.toUpperCase().includes(filter))));
 }
-
-
-
-
-
-
-
-
-
