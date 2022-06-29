@@ -6,6 +6,7 @@ init();
 /**
  * Reinitialise card index based on search parameters.
  */
+console.time("searchData");
 async function init() {
 
     /**
@@ -64,7 +65,7 @@ async function init() {
             let filteredRecipes = filterByUtensil(recipesByAppliance, searchUtensilTags());
             displayData(filteredRecipes);
             messageRecipeFound(searchResultMessage, filteredRecipes);
-            console.clear();
+            //console.clear();
             console.log(filteredRecipes);
         }
     } else {
@@ -76,10 +77,11 @@ async function init() {
             messageRecipeFound(searchResultMessage, filteredRecipes);
         }
         displayData(filteredRecipes);
-        console.clear();
+        //console.clear();
         console.log(filteredRecipes);
     }
 }
+console.timeEnd("searchData");
 
 /**
  * Message if no recipe is found.

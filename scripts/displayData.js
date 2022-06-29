@@ -4,6 +4,7 @@
  * @param recipes
  * @returns {Promise<void>}
  */
+console.time("displayData");
 async function displayData(recipes) {
     const recipeSection = document.getElementById("recipe-cards");
     const ulIngredients = document.getElementById("ingredient-list");
@@ -225,3 +226,4 @@ async function displayData(recipes) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
 }
+console.timeEnd("displayData");
