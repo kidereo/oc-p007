@@ -30,7 +30,11 @@ header .logo { height: 100px; }
 
 .search-selectors-tags { display: flex; flex-direction: row; justify-content: flex-start; margin-bottom: 20px; }
 
-.search-selectors-tags .search-tag { display: flex; flex-direction: row; align-items: center; justify-content: space-between; padding: 10px; font-size: medium; margin-right: 20px; cursor: pointer; }
+.search-selectors-tags .search-tag { display: flex; flex-direction: row; align-items: center; justify-content: space-between; padding: 10px; font-size: medium; cursor: pointer; }
+
+.search-selectors-tags .search-tag-wrapper { display: flex; flex-direction: row; align-items: center; margin-right: 20px; }
+
+.search-selectors-tags .search-tag-wrapper i { padding-right: 10px; cursor: pointer; }
 
 .search-selectors-tags .search-tag span { margin-right: 10px; }
 

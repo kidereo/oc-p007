@@ -6,9 +6,9 @@ init();
 /**
  * Reinitialise card index based on search parameters.
  */
-console.time("searchData");
-async function init() {
 
+async function init() {
+    console.time("Recipes searched in");
     /**
      * Get the data.
      */
@@ -80,8 +80,8 @@ async function init() {
         //console.clear();
         console.log(filteredRecipes);
     }
+    console.timeEnd("Recipes searched in");
 }
-console.timeEnd("searchData");
 
 /**
  * Message if no recipe is found.

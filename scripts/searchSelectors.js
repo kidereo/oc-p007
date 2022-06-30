@@ -66,7 +66,7 @@ ulIngredient.addEventListener("click", function (e) {
         //Hide the item from the ul list
         e.target.classList.add("hidden");
         //Add the item as a new tag
-        searchTags.innerHTML += "<input type='button' class='search-tag colour-ingredients' value='" + e.target.innerText + "' onclick='restoreIngredient(value)'>";
+        searchTags.innerHTML += "<div class='search-tag-wrapper colour-ingredients'><input type='button' class='search-tag colour-ingredients' value='" + e.target.innerText + "' onclick='restoreIngredient(value)'><i class='fas fa-times'></i></div>";
     }
     init();
 });
@@ -170,7 +170,7 @@ ulAppliance.addEventListener("click", function (e) {
         //Hide the item from the ul list
         e.target.classList.add("hidden");
         //Add the item as a new tag
-        searchTags.innerHTML += "<input type='button' class='search-tag colour-appliances' value='" + e.target.innerText + "' onclick='restoreAppliance(value)'>";
+        searchTags.innerHTML += "<div class='search-tag-wrapper colour-appliances'><input type='button' class='search-tag colour-appliances' value='" + e.target.innerText + "' onclick='restoreAppliance(value)'><i class='fas fa-times'></i></div>";
     }
     init();
 });
@@ -271,7 +271,7 @@ ulUtensil.addEventListener("click", function (e) {
         //Hide the item from the ul list
         e.target.classList.add("hidden");
         //Add the item as a new tag
-        searchTags.innerHTML += "<input type='button' class='search-tag colour-utensils' value='" + e.target.innerText + "' onclick='restoreUtensil(value)'>";
+        searchTags.innerHTML += "<div class='search-tag-wrapper colour-utensils'><input type='button' class='search-tag colour-utensils' value='" + e.target.innerText + "' onclick='restoreUtensil(value)'><i class='fas fa-times'></i></div>";
     }
     init();
 });
@@ -372,8 +372,9 @@ recipeCards.addEventListener("click", function () {
  * [2] Relaunch recipe search.
  */
 searchTags.addEventListener("click", function (e) {
-    if (e.target && e.target.matches("input")) {
-        e.target.remove();
+    if ((e.target && e.target.matches("input")) || (e.target && e.target.matches("i"))) {
+        //e.target.remove();
+        e.target.parentElement.remove();
     }
     init();
 });

@@ -17,8 +17,19 @@
       justify-content: space-between;
       padding: 10px;
       font-size: medium;
-      margin-right: 20px;
       cursor: pointer;
+
+      &-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-right: 20px;
+
+        & i {
+          padding-right: 10px;
+          cursor: pointer;
+        }
+      }
 
       & span {
         margin-right: 10px;
@@ -107,4 +118,3 @@
     border-radius: 5px;
   }
 }
-

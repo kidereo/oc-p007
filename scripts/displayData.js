@@ -4,7 +4,6 @@
  * @param recipes
  * @returns {Promise<void>}
  */
-console.time("displayData");
 async function displayData(recipes) {
     const recipeSection = document.getElementById("recipe-cards");
     const ulIngredients = document.getElementById("ingredient-list");
@@ -169,7 +168,7 @@ async function displayData(recipes) {
      * Filter out any active tags from unique lists prior to building <li> elements.
      */
 
-    //Convert unique lists to upper case. This is needed to reuse search...Tags() function from searchData.js
+        //Convert unique lists to upper case. This is needed to reuse search...Tags() function from searchData.js
     let uilUpper = uniqueIngredientList.map(detail => {
             return detail.toUpperCase();
         });
@@ -226,4 +225,3 @@ async function displayData(recipes) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
 }
-console.timeEnd("displayData");
