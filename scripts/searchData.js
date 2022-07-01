@@ -53,10 +53,23 @@ async function init() {
      * [4] Subfilter recipes by ingredient, appliance or utensil search selector in all cases.
      */
     if (inputMainSearch.length >= 3) {
+        let recipesByMainSearch = [];
+        for (let i = 0; i < recipes.length; i++) {
+            if (recipes[i].name.toUpperCase().includes(inputMainSearch) ||
+                recipes[i].description.toUpperCase().includes(inputMainSearch) ||
+                Object.values(recipes[i].ingredients).indexOf(inputMainSearch) > -1) {
+                recipesByMainSearch.push(recipes[i]);
+            }
+        }
+
+        /**
+         * Alternative Array.filter() method left for comparison.
+         *
         let recipesByMainSearch = recipes.filter(recipe =>
             recipe.name.toUpperCase().includes(inputMainSearch) ||
             recipe.description.toUpperCase().includes(inputMainSearch) ||
-            recipe.ingredients.some(detail => detail.ingredient.toUpperCase().includes(inputMainSearch)));
+            recipe.ingredients.some(detail => detail.ingredient.toUpperCase().includes(inputMainSearch)));*/
+
         if (recipesByMainSearch.length === 0) {
             messageNoRecipeFound(searchResultMessage);
         } else {
