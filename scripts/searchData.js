@@ -63,7 +63,7 @@ async function init() {
         }
 
         /**
-         * Alternative Array.filter() method left for comparison.
+         * Alternative Array.filter() method for comparison.
          *
         let recipesByMainSearch = recipes.filter(recipe =>
             recipe.name.toUpperCase().includes(inputMainSearch) ||
