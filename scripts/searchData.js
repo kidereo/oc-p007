@@ -57,7 +57,8 @@ async function init() {
         for (let i = 0; i < recipes.length; i++) {
             if (recipes[i].name.toUpperCase().includes(inputMainSearch) ||
                 recipes[i].description.toUpperCase().includes(inputMainSearch) ||
-                Object.values(recipes[i].ingredients).indexOf(inputMainSearch) > -1) {
+                Object.values(recipes[i].ingredients).indexOf(inputMainSearch) > -1
+            ) {
                 recipesByMainSearch.push(recipes[i]);
             }
         }
@@ -65,10 +66,10 @@ async function init() {
         /**
          * Alternative Array.filter() method for comparison.
          *
-        let recipesByMainSearch = recipes.filter(recipe =>
-            recipe.name.toUpperCase().includes(inputMainSearch) ||
-            recipe.description.toUpperCase().includes(inputMainSearch) ||
-            recipe.ingredients.some(detail => detail.ingredient.toUpperCase().includes(inputMainSearch)));*/
+         let recipesByMainSearch = recipes.filter(recipe =>
+         recipe.name.toUpperCase().includes(inputMainSearch) ||
+         recipe.description.toUpperCase().includes(inputMainSearch) ||
+         recipe.ingredients.some(detail => detail.ingredient.toUpperCase().includes(inputMainSearch)));*/
 
         if (recipesByMainSearch.length === 0) {
             messageNoRecipeFound(searchResultMessage);
