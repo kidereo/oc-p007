@@ -120,68 +120,29 @@
 }
 
 // Make dropdowns float above the recipe cards
-#ingredient-selector-fieldset {
+#ingredient-selector-fieldset, #appliance-selector-fieldset, #utensil-selector-fieldset {
   position: relative;
+}
+
+#ingredient-list, #appliance-list, #utensil-list {
+  position: absolute;
+  top: 40px;
+  left: -1px;
+  width: 576px;
+  padding: 20px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
 
 #ingredient-list {
-  position: absolute;
-  top: 40px;
-  left: -1px;
   background-color: $colour-background-ingredients;
-  width: 576px;
-  padding: 20px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  //box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
-}
-
-#appliance-selector-fieldset {
-  position: relative;
 }
 
 #appliance-list {
-  position: absolute;
-  top: 40px;
-  left: -1px;
   background-color: $colour-background-appliances;
-  width: 576px;
-  padding: 20px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  //box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
-}
-
-#appliance-selector-fieldset {
-  position: relative;
-}
-
-#appliance-list {
-  position: absolute;
-  top: 40px;
-  left: -1px;
-  background-color: $colour-background-appliances;
-  width: 576px;
-  padding: 20px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
-}
-
-#utensil-selector-fieldset {
-  position: relative;
 }
 
 #utensil-list {
-  position: absolute;
-  top: 40px;
-  left: -1px;
   background-color: $colour-background-utensils;
-  width: 576px;
-  padding: 20px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }

@@ -62,21 +62,15 @@ header .logo { height: 100px; }
 
 .search-selectors .colour-utensils { color: white; border: 1px solid #e64c43; background-color: #e64c43; border-radius: 5px; }
 
-#ingredient-selector-fieldset { position: relative; }
+#ingredient-selector-fieldset, #appliance-selector-fieldset, #utensil-selector-fieldset { position: relative; }
 
-#ingredient-list { position: absolute; top: 40px; left: -1px; background-color: #2769f4; width: 576px; padding: 20px; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px; }
+#ingredient-list, #appliance-list, #utensil-list { position: absolute; top: 40px; left: -1px; width: 576px; padding: 20px; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px; }
 
-#appliance-selector-fieldset { position: relative; }
+#ingredient-list { background-color: #2769f4; }
 
-#appliance-list { position: absolute; top: 40px; left: -1px; background-color: #5ad493; width: 576px; padding: 20px; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px; }
+#appliance-list { background-color: #5ad493; }
 
-#appliance-selector-fieldset { position: relative; }
-
-#appliance-list { position: absolute; top: 40px; left: -1px; background-color: #5ad493; width: 576px; padding: 20px; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px; }
-
-#utensil-selector-fieldset { position: relative; }
-
-#utensil-list { position: absolute; top: 40px; left: -1px; background-color: #e64c43; width: 576px; padding: 20px; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px; }
+#utensil-list { background-color: #e64c43; }
 
 .recipe-cards { margin-top: 50px; margin-bottom: 50px; display: grid; grid-template-columns: 1fr 1fr 1fr; }
 
