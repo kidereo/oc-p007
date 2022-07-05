@@ -64,7 +64,7 @@ header .logo { height: 100px; }
 
 #ingredient-selector-fieldset, #appliance-selector-fieldset, #utensil-selector-fieldset { position: relative; }
 
-#ingredient-list, #appliance-list, #utensil-list { position: absolute; top: 40px; left: -1px; width: 576px; padding: 20px; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px; }
+#ingredient-list, #appliance-list, #utensil-list { position: absolute; top: 40px; left: -1px; width: 576px; padding: 20px; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; box-shadow: rgba(0, 0, 0, 0.45) 0 25px 20px -20px; }
 
 #ingredient-list { background-color: #2769f4; }
 

@@ -57,7 +57,7 @@ async function init() {
         for (let i = 0; i < recipes.length; i++) {
             if (recipes[i].name.toUpperCase().includes(inputMainSearch) ||
                 recipes[i].description.toUpperCase().includes(inputMainSearch) ||
-                Object.values(recipes[i].ingredients).indexOf(inputMainSearch) > -1) {
+                recipes[i].ingredients.some(detail => detail.ingredient.toUpperCase().includes(inputMainSearch))) {
                 recipesByMainSearch.push(recipes[i]);
             }
         }
