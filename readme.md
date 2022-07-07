@@ -24,3 +24,5 @@ This branch implements research algorithm using JavaScript's built-in ``Array`` 
 ![Function Test Report (2)](assets/images/annex-c.jpg)
 
 ![Function Test Report (3)](assets/images/annex-d.jpg)
+
+Download [Fiche d’investigation de fonctionnalité](assets/pdf/fiche-investigation.pdf)
